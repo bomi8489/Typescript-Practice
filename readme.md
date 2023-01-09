@@ -1,0 +1,2 @@
+# Typescript 연습
+
