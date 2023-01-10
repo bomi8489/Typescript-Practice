@@ -1,11 +1,12 @@
 "use strict";
 var person = {
-    name: '김사람',
-    age: 20
+    name: '김사람'
 };
 var expert = {
     name: '김개발',
     skills: ['javascript', 'react']
 };
 var people = [person, expert];
-console.log(people);
+var color = 'red';
+var colors = ['red', 'orange'];
+console.log(people, colors);
