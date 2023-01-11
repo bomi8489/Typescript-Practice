@@ -1,5 +1,15 @@
+// interface MyPerson {
+//     name: string
+//     age: number
+// }
 
-let o: object = { name: 'Jack', age: 32 }
-o = { first: 1, second: 2 }
+// class myPeople implements MyPerson {
+//     constructor(public name: string, public age: number, private etc?: boolean) { }
+// }
 
-console.log(o); // { first: 1, second: 2 }
+// let pual: MyPerson = new myPeople('Pual', 32, true);
+
+// console.log(pual);
+
+let person: object = { name: 'Jack', age: 32 };
+console.log((<{ name: string }>person).name);

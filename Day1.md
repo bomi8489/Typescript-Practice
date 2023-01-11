@@ -1,4 +1,4 @@
-# Typescript
+# Typescript day1
 
 ## typescript를 사용하는 이유
 
@@ -12,7 +12,9 @@
 
 <br> <hr>
 
-## 타입스크립트 변수 선언문
+## 객체와 타입
+
+### 변수 선언문
 
 - 타입 주석
 
@@ -70,9 +72,12 @@
 
 <br>
 
+### 객체와 인터페이스
+
 - 객체와 인터페이스
 
     object 타입은 인터페이스와 클래스의 상위 타입이다. object 타입으로 선언된 변수는 number, boolean, string 타입의 값을 가질 수는 없지만, 속성 이름이 다른 객체를 모두 자유롭게 담을 수 있다.
+
 
     ```
     let o: object = {name: 'Jack', age: 32}
@@ -80,6 +85,8 @@
 
     console.log(o); // { first: 1, second: 2 }
     ```
+    
+    <br> 
 
     위의 코드에서 object는 마치 객체를 대상으로 하는 any 타입처럼 동작한다. 인터페이스 구문은 이렇게 동작하지 않게 하려는 목적으로 고안되었다. 즉, 변수 o에는 항상 name과 age 속성으로만 구성된 객체만 가질 수 있게한다.
 
@@ -117,8 +124,5 @@
     let good1: IPerson = {name: 'Jack', age: 32}
     let good2: IPerson = {name: 'Jane', age: 27, etc: true}
     ```
+    
     etc는 선택 속성이므로 5행 6행은 모두 정상 동작한다.
-
-<br>
-
-- 객체와 클래스
