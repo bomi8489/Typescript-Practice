@@ -1,4 +1,4 @@
-# Typescript day3
+# Typescript day5
 
 ## 함수와 메서드
 
