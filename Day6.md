@@ -165,3 +165,63 @@ console.log(array)  // [1, 2, 3]
     )
     ```
 
+<br>
+
+- 제네릭 함수의 타입 추론
+
+    ```
+    const identity = <T>(n: T): T => n
+    console.log(
+        identity<boolean>(true)
+        identity(true)
+    )
+    ```
+
+    위의 코드에서 제네릭 형태로 구현된 함수는 3행처럼 타입 변수를 `함수이름<타입변수>(매개변수)` 이렇게 명시해 주어야 한다.
+
+    하지만 이런 코드는 번거롭기에 4행처럼 타입 변수 부분을 생략할 수 있게 한다. 타입스크립트는 타입 변수가 생략된 제네릭 함수를 만나면 타입 추론을 통해 생략된 타입을 찾아낸다.
+
+<br>
+
+- 제네릭 함수의 함수 시그니처
+
+    타입스크립트는 어떤 경우 함수 시그니처의 매개변수 부분에 변수 이름을 기입하라고 요구한다. 다음 코드에서 normal 함수는 cb라는 이름의 매개변수에 함수 시그니처를 사용했다. 그런데 normal과 달리 error함수는 오류가 발생한다.
+
+    ```
+    const normal = (cb: (number) => number): void => { }
+    const error = (cb: (number, number?) => number): void => { }    // error
+    const fixed = (cb: (a: number, number?) => number): void => { }
+    ```
+
+    이런 오류가 발생하면 3행의 fixed 선언문처럼 타입스크립트가 해석하지 못하는 부분에 변수를 삽입하고 이 변수에 타입을 명시해 해결한다. 제네릭 타입의 함수에서도 같은 문제가 발생하는데, 앞선 fixed에서와 같이 해결할 수 있다.
+
+    ```
+    const f = <T>(cb: (arg: T, i?: number) => number): void => {}
+    ```
+
+<br>
+
+- 전개 연산자
+
+    전개 연산자 `...`는 배열에도 적용할 수 있다. 다음 코드는 전개 연산자를 사용해 두 배열과 특정 값을 동시에 결합하는 예이다.
+
+    ```
+    let array1: number[] = [1]
+    let array2: number[] = [2, 3]
+    let mergedArray: number[] = [...array1, ...array2, 4]
+    console.log(mergedArray)
+    ```
+
+<br>
+
+- range 함수 구현
+
+    배열에 spread-operator를 적용하면 R.range와 같은 함수를 만들 수 있다. 다음 range 함수는 재귀함수 스타일로 동작하며, R.range처럼 from에서 to 까지 수로 구성된 배열을 생성해준다.
+
+    ```
+    const range = (from: number, to: number): number[] => 
+        from < to ? [from, ...range(from + 1, to)] : []
+
+    let numbers: number[] = range(1, 9+1)
+    console.log(numbers)
+    ```
