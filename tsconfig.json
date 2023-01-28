@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "outDir": "./dist",
-    "downlevelIteration": true,
-    "noImplicitAny": false,
-  }
+  "module": "commonjs",
+  "esModuleInterop": true,
+  "target": "es5",
+  "moduleResolution": "node",
+  "outDir": "dist",
+  "baseUrl": ".",
+  "sourceMap": true,
+  "downlevelIteration": true,
+  "paths": { "*": ["node_modules/*"]}
+  },
+  "include": ["src/**/*"]
 }

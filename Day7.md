@@ -1,4 +1,4 @@
-# Typescript day6
+# Typescript day7
 
 ## 배열과 튜플
 
