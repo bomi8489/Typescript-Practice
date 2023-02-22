@@ -1,4 +1,4 @@
-# Typescript day11
+# Typescript day12
 
 ## Promise와 async/await 구문
 
@@ -124,4 +124,3 @@
         .catch(err => console.log('error:', err.message))
     ```
 
-    
