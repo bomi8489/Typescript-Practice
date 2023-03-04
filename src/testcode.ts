@@ -21,11 +21,8 @@ class Dict {
             delete this.words[term]
         }
     }
-    updateName(oldTerm: string, newTerm: string) {
-        if (this.words.hasOwnProperty(oldTerm)) {
-            this.words[newTerm] = this.words[oldTerm];
-            delete this.words[oldTerm]
-        }
+    updateDef(word: Word, newDef: string) {
+        this.words[word.term] = newDef
     }
     all() {
         for (let [key, value] of Object.entries(this.words)) {
@@ -39,15 +36,6 @@ class Word {
         public term: string,
         public def: (string | string[])
     ) { }
-    updateDef(oldDef: string, newDef: string) {
-        if (typeof this.def === "string") {
-            if (oldDef === this.def) this.def = newDef
-        }
-        else {
-            this.def.filter(val => val !== oldDef)
-            this.def.push(newDef)
-        }
-    }
 }
 
 const kimchi = new Word("kimchi", "한국의 음식")
@@ -56,7 +44,5 @@ const dict = new Dict()
 dict.add(kimchi)
 dict.add(sushi)
 dict.all()
-dict.updateName("kimchi", "김치")
-dict.all()
-kimchi.updateDef("한국의 음식", "김치")
+dict.updateDef(kimchi, "김치")
 dict.all()
