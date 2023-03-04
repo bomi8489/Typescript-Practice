@@ -1,6 +1,6 @@
 type Words = {
     //객체의 property에 대해 모르지만 타입만을 알 떄 유용
-    [key: string]: (string | string[])
+    [key: string]: string
 }
 
 class Dict {
@@ -33,8 +33,8 @@ class Dict {
 
 class Word {
     constructor(
-        public term: string,
-        public def: (string | string[])
+        public readonly term: string,
+        public readonly def: string
     ) { }
 }
 
